@@ -24,3 +24,11 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext{
+    compileSdkVersion = 29
+
+    materialVersion = "1.3.0-alpha01"
+    recyclerviewVersion = "1.1.0"
+    cardviewVersion = "1.0.0"
+}
