@@ -2,4 +2,13 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="account">Account</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="account_info">Account Info</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="product_title">Product Title</string>
+    <string name="product_subtitle">Product Subtitle</string>
+    <string name="add_to_cart">Add to cart</string>
 </resources>

@@ -1,23 +1,20 @@
 package com.udayasreetechnologies.sdklibrary
 
 import android.Manifest
-import android.content.DialogInterface
-import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import com.udayasreetechnologies.sdklibrary.ui.productlist.ProductListFragment
 
-class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, ProductListFragment.OnHomeFragmentListener {
 
     private lateinit var permissions: Array<String>
     private lateinit var toolbar: Toolbar
@@ -46,7 +43,16 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
 
-        homeFragment()
+        productListFragment()
+    }
+
+    private fun productListFragment() {
+        launchFragment(ProductListFragment.newInstance(), "Products")
+    }
+
+
+    override fun onContextFailedListener() {
+        productListFragment()
     }
 
     private fun launchFragment(fragment : Fragment?, title : String) {
@@ -74,10 +80,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
-
-    private fun homeFragment() {
-
     }
 
     private fun checkRunTimePermissions() {
@@ -108,16 +110,16 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.groupId) {
-            R.id.nav_id1 -> {
+            R.id.drawer_home_id -> {
 
             }
-            R.id.nav_id2 -> {
+            R.id.drawer_settings_id -> {
 
             }
-            R.id.nav_id3 -> {
+            R.id.drawer_account_id -> {
 
             }
-            R.id.nav_id4 -> {
+            R.id.drawer_wishlist_id -> {
 
             }
         }

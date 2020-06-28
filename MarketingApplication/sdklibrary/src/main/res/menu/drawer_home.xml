@@ -4,24 +4,24 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_id1"
-            android:icon="@drawable/ic_android_black_24dp"
+            android:id="@+id/drawer_home_id"
+            android:icon="@drawable/ic_home_32dp"
             android:title="@string/home" />
         <item
-            android:id="@+id/nav_id2"
-            android:icon="@drawable/ic_android_black_24dp"
-            android:title="@string/home" />
-        <item
-            android:id="@+id/nav_id3"
-            android:icon="@drawable/ic_android_black_24dp"
-            android:title="@string/home" />
+            android:id="@+id/drawer_settings_id"
+            android:icon="@drawable/ic_settings_32dp"
+            android:title="@string/settings" />
     </group>
-    <item android:title="Account Settings">
+    <item android:title="@string/account">
         <menu>
             <item
-                android:id="@+id/nav_id4"
-                android:icon="@drawable/ic_android_black_24dp"
-                android:title="@string/home" />
+                android:id="@+id/drawer_account_id"
+                android:icon="@drawable/ic_account_32dp"
+                android:title="@string/account_info" />
+            <item
+                android:id="@+id/drawer_wishlist_id"
+                android:icon="@drawable/ic_wishlist_32dp"
+                android:title="@string/wishlist" />
         </menu>
     </item>
 </menu>
