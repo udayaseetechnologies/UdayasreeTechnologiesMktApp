@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/padding_5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/row_category_productlist_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

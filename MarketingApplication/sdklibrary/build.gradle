@@ -4,8 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion "30.0.0"
-
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion rootProject.ext.compileSdkVersion
@@ -18,7 +17,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

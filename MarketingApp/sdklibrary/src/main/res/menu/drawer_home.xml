@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_home_id"
+            android:icon="@drawable/ic_home_32dp"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/drawer_settings_id"
+            android:icon="@drawable/ic_settings_32dp"
+            android:title="@string/settings" />
+    </group>
+    <item android:title="@string/account">
+        <menu>
+            <item
+                android:id="@+id/drawer_account_id"
+                android:icon="@drawable/ic_account_32dp"
+                android:title="@string/account_info" />
+        </menu>
+    </item>
+</menu>
