@@ -1,4 +1,4 @@
-package com.udayasreetechnologies.sdklibrary.ui.productlist
+package com.udayasreetechnologies.sdklibrary.ui.productlist.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -16,7 +16,8 @@ import com.udayasreetechnologies.sdklibrary.ui.productlist.adapters.ProductImage
 import com.udayasreetechnologies.utilitylibrary.customuiview.AppUtility
 import com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
 
-class ProductMainAdapter(val context : Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+class ProductMainAdapter(val context : Context, val listener : OnProductMainAdapterListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val IMAGE_SLIDER = 0
     private val PRODUCT_CATEGORY = 1
@@ -100,12 +101,13 @@ class ProductMainAdapter(val context : Context) : RecyclerView.Adapter<RecyclerV
     inner class ProductListHolder(view: View) : RecyclerView.ViewHolder(view) {
         val productImage : ImageView = view.findViewById(R.id.row_productlist_image_id)
         val productTitle : USTextView = view.findViewById(R.id.row_productlist_title_id)
-        val productSubtitle : USTextView = view.findViewById(R.id.row_productlist_subtitle_id)
+        val productPrice : USTextView = view.findViewById(R.id.row_productlist_price)
         private val addToCartAction : USTextView = view.findViewById(R.id.row_productlist_addtocart_aciton)
 
         init {
+            productImage.layoutParams.height = (AppUtility.SCREEN_WIDTH * 0.30).toInt()
             addToCartAction.setOnClickListener {
-
+                listener.onAddToCartClickListener()
             }
         }
     }
@@ -122,5 +124,9 @@ class ProductMainAdapter(val context : Context) : RecyclerView.Adapter<RecyclerV
         init {
             imageSlider.layoutParams.height = (AppUtility.SCREEN_HEIGHT * 0.30).toInt()
         }
+    }
+
+    interface OnProductMainAdapterListener {
+        fun onAddToCartClickListener()
     }
 }

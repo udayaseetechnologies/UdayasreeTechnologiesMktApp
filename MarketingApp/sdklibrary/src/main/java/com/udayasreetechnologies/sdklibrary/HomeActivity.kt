@@ -3,13 +3,12 @@ package com.udayasreetechnologies.sdklibrary
 import android.Manifest
 import android.graphics.Point
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Toast
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
@@ -19,6 +18,7 @@ import com.google.android.material.navigation.NavigationView
 import com.udayasreetechnologies.sdklibrary.ui.productlist.ProductListFragment
 import com.udayasreetechnologies.utilitylibrary.customuiview.AppUtility
 import com.udayasreetechnologies.utilitylibrary.customuiview.searchview.MaterialSearchView
+import kotlin.collections.ArrayList
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
     ProductListFragment.OnHomeFragmentListener {
@@ -29,11 +29,12 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var navView: NavigationView
     private lateinit var searchView : MaterialSearchView
 
-    private lateinit var suggestionList : ArrayList<String>
+    private lateinit var cartBadge : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
         toolbar = findViewById(R.id.home_toolbar)
         setSupportActionBar(toolbar)
         initScreenSize()
@@ -61,17 +62,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
 
-        suggestionList = ArrayList()
-        suggestionList.add("Apple Ball")
-        suggestionList.add("Cat Apple")
-        suggestionList.add("Apple Ball Cat")
-        suggestionList.add("Dog Elephant")
-        suggestionList.add("Elephant Apple")
-        suggestionList.add("Fish Goat")
-        suggestionList.add("Goat Horse")
-
-
-        initSearchView()
         productListFragment()
     }
 
@@ -79,35 +69,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         launchFragment(ProductListFragment.newInstance(), "Products")
     }
 
-
+/*-------------------------- Listener's ------------------------*/
     override fun onContextFailedListener() {
         productListFragment()
     }
 
-    private fun initSearchView() {
-        searchView.setVoiceSearch(false)
-        searchView.setSuggestions(suggestionList)
-        searchView.setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Toast.makeText(this@HomeActivity, query, Toast.LENGTH_LONG).show()
-                return false
-            }
+    override fun onAddToCartUpdateListener() {
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                Toast.makeText(this@HomeActivity, newText, Toast.LENGTH_LONG).show()
-                return false
-            }
-        })
-
-        searchView.setOnSearchViewListener(object : MaterialSearchView.SearchViewListener {
-            override fun onSearchViewClosed() {
-
-            }
-
-            override fun onSearchViewShown() {
-
-            }
-        })
     }
 
     private fun launchFragment(fragment : Fragment?, title : String) {
@@ -181,15 +149,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_home, menu)
-        val item = menu?.findItem(R.id.menu_home_search)
-        searchView.setMenuItem(item)
+        val cartMenu = menu?.findItem(R.id.menu_home_cart)?.actionView
+        cartBadge = cartMenu?.findViewById(R.id.menu_home_cart_badge)!!
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.groupId) {
-            R.id.menu_home_search ->{
-                //searchView.visibility = View.VISIBLE
+            R.id.menu_home_cart ->{
             }
 
             else -> {

@@ -25,7 +25,7 @@ class ProductImageSliderAdapter(val context : Context, val sliderImageList : Arr
     override fun onBindViewHolder(holder: ProductImageSliderHolder?, position: Int) {
 
         val requestOption = RequestOptions()
-            .placeholder(R.drawable.icon_placeholder)
+            .placeholder(R.drawable.icon_category_placeholder)
 
         holder?.imageSlider?.let {
             Glide.with(context)

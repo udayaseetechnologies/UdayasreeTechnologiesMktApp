@@ -10,11 +10,12 @@ import android.widget.Spinner
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.udayasreetechnologies.sdklibrary.R
+import com.udayasreetechnologies.sdklibrary.ui.productlist.adapters.ProductMainAdapter
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class ProductListFragment : Fragment() {
+class ProductListFragment : Fragment(), ProductMainAdapter.OnProductMainAdapterListener {
 
     private var mContext : Context? = null
     private lateinit var mListener : OnHomeFragmentListener
@@ -81,12 +82,17 @@ class ProductListFragment : Fragment() {
             }
         }
         mRecyclerView.layoutManager = layoutManager
-        mAdapter = ProductMainAdapter(mContext!!)
+        mAdapter = ProductMainAdapter(mContext!!, this)
         mRecyclerView.adapter = mAdapter
         mAdapter.notifyDataSetChanged()
     }
 
+    override fun onAddToCartClickListener() {
+        mListener.onAddToCartUpdateListener()
+    }
+
     interface OnHomeFragmentListener {
         fun onContextFailedListener()
+        fun onAddToCartUpdateListener()
     }
 }

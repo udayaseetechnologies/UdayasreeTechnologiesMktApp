@@ -7,9 +7,8 @@
         android:layout_height="wrap_content">
     <com.udayasreetechnologies.utilitylibrary.customuiview.CircleImageView
             android:id="@+id/row_product_category_image"
-            app:civ_border_color="@color/colorAccent"
+            app:civ_border_color="@color/color_gray"
             app:civ_border_width="@dimen/padding_2dp"
-            android:tint="@color/icon_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView

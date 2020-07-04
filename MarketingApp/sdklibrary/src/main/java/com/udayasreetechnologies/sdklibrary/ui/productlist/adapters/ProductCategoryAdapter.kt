@@ -21,7 +21,7 @@ class ProductCategoryAdapter : RecyclerView.Adapter<ProductCategoryAdapter.Produ
     }
 
     override fun onBindViewHolder(holder: ProductCategoryHolder, position: Int) {
-        holder.circularView.setImageResource(R.drawable.icon_placeholder)
+        holder.circularView.setImageResource(R.drawable.icon_category_placeholder)
     }
 
     inner class ProductCategoryHolder(view: View) : RecyclerView.ViewHolder(view) {
