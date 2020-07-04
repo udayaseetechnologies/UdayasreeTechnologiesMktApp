@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Spinner
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.udayasreetechnologies.sdklibrary.R
 
@@ -19,9 +19,8 @@ class ProductListFragment : Fragment() {
     private var mContext : Context? = null
     private lateinit var mListener : OnHomeFragmentListener
     private lateinit var mRecyclerView : RecyclerView
-    private lateinit var mSortSpinner : Spinner
 
-    private lateinit var mAdapter : ProductListAdapter
+    private lateinit var mAdapter : ProductMainAdapter
 
     companion object {
         @JvmStatic
@@ -66,11 +65,23 @@ class ProductListFragment : Fragment() {
     }
 
     private fun initView(view: View) {
-        mSortSpinner = view.findViewById(R.id.frag_home_sort_spinner_id)
         mRecyclerView = view.findViewById(R.id.frag_home_recyclerview_id)
 
-        mRecyclerView.layoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
-        mAdapter = ProductListAdapter()
+        val layoutManager = GridLayoutManager(mContext, 2, RecyclerView.VERTICAL, false)
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return when(position) {
+                    0 , 1 -> {
+                        2
+                    }
+                    else -> {
+                        1
+                    }
+                }
+            }
+        }
+        mRecyclerView.layoutManager = layoutManager
+        mAdapter = ProductMainAdapter(mContext!!)
         mRecyclerView.adapter = mAdapter
         mAdapter.notifyDataSetChanged()
     }

@@ -64,16 +64,20 @@ public class USTextView extends AppCompatTextView {
             switch (typefaceFont) {
                 case USButton.TypefaceFont.DESCRIPTION:
                     typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Desc.ttf");
+                    setTextSize(26 / getResources().getDisplayMetrics().scaledDensity);
                     break;
                 case USButton.TypefaceFont.SUBTITLE:
                     typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Subtitle.ttf");
+                    setTextSize(28 / getResources().getDisplayMetrics().scaledDensity);
                     break;
                 case USButton.TypefaceFont.TITLE:
                     typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Title.ttf");
+                    setTextSize(36 / getResources().getDisplayMetrics().scaledDensity);
                     break;
                 case USButton.TypefaceFont.REGULAR:
                 default:
                     typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Regular.ttf");
+                    setTextSize(32 / getResources().getDisplayMetrics().scaledDensity);
                     break;
             }
             setTypeface(typeface);
