@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:drawable="@drawable/ic_cart_36dp"
+            android:gravity="center" />
+
+    <item
+            android:id="@+id/menu_home_cart_badge"
+            android:drawable="@color/transparent" />
+
+</layer-list>

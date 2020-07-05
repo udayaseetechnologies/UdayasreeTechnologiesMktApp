@@ -2,6 +2,7 @@ package com.udayasreetechnologies.sdklibrary
 
 import android.Manifest
 import android.graphics.Point
+import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -12,13 +13,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
+import androidx.core.view.MenuItemCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.udayasreetechnologies.sdklibrary.ui.productlist.ProductListFragment
 import com.udayasreetechnologies.utilitylibrary.customuiview.AppUtility
 import com.udayasreetechnologies.utilitylibrary.customuiview.searchview.MaterialSearchView
-import kotlin.collections.ArrayList
+
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
     ProductListFragment.OnHomeFragmentListener {
@@ -29,7 +31,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var navView: NavigationView
     private lateinit var searchView : MaterialSearchView
 
-    private lateinit var cartBadge : TextView
+    private var menuItem: MenuItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -149,9 +151,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_home, menu)
-        val cartMenu = menu?.findItem(R.id.menu_home_cart)?.actionView
-        cartBadge = cartMenu?.findViewById(R.id.menu_home_cart_badge)!!
-        return true
+        menuItem  = menu?.findItem(R.id.menu_home_cart)
+        cartBadge("18")
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -164,6 +166,21 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         }
         return true
+    }
+
+    private fun cartBadge(count : String) {
+        if (menuItem != null) {
+            val icon = menuItem?.icon as LayerDrawable
+            val reuse = icon.findDrawableByLayerId(R.id.menu_home_cart_badge)
+            val cartBadge = if (reuse != null && reuse is CountDrawable) {
+                reuse
+            } else {
+                CountDrawable(this)
+            }
+            cartBadge.setCount(count)
+            icon.mutate()
+            icon.setDrawableByLayerId(R.id.menu_home_cart_badge, cartBadge)
+        }
     }
 
     override fun onBackPressed() {
