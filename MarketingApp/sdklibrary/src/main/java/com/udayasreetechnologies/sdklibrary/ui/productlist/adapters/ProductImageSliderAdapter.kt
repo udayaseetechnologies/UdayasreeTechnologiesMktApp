@@ -26,9 +26,11 @@ class ProductImageSliderAdapter(val context : Context, val sliderImageList : Arr
 
         val requestOption = RequestOptions()
             .placeholder(R.drawable.icon_category_placeholder)
+            .error(R.drawable.icon_category_placeholder)
 
         holder?.imageSlider?.let {
             Glide.with(context)
+                .setDefaultRequestOptions(requestOption)
                 .load(sliderImageList[position])
                 .fitCenter()
                 .into(it)

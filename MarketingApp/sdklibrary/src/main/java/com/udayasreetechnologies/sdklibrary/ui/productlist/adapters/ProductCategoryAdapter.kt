@@ -1,15 +1,19 @@
 package com.udayasreetechnologies.sdklibrary.ui.productlist.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.udayasreetechnologies.sdklibrary.R
 import com.udayasreetechnologies.utilitylibrary.customuiview.AppUtility
+import com.udayasreetechnologies.utilitylibrary.customuiview.CategoryProduct
 import com.udayasreetechnologies.utilitylibrary.customuiview.CircleImageView
 import com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
 
-class ProductCategoryAdapter : RecyclerView.Adapter<ProductCategoryAdapter.ProductCategoryHolder>() {
+class ProductCategoryAdapter(val context : Context, val category : ArrayList<CategoryProduct>) : RecyclerView.Adapter<ProductCategoryAdapter.ProductCategoryHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductCategoryHolder {
         return ProductCategoryHolder(LayoutInflater.from(parent.context).inflate(R.layout.row_product_category,
@@ -17,11 +21,23 @@ class ProductCategoryAdapter : RecyclerView.Adapter<ProductCategoryAdapter.Produ
     }
 
     override fun getItemCount(): Int {
-        return 7
+        return category.size
     }
 
     override fun onBindViewHolder(holder: ProductCategoryHolder, position: Int) {
-        holder.circularView.setImageResource(R.drawable.icon_category_placeholder)
+        val model = category[position]
+        val requestOption = RequestOptions()
+            .placeholder(R.drawable.icon_category_placeholder)
+            .error(R.drawable.icon_category_placeholder)
+
+        holder?.circularView?.let {
+            Glide.with(context)
+                .setDefaultRequestOptions(requestOption)
+                .load(model.categoryImage)
+                .fitCenter()
+                .into(it)
+        }
+        holder.title.setText(model.categoryName)
     }
 
     inner class ProductCategoryHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType
 import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderView
@@ -14,22 +16,15 @@ import com.udayasreetechnologies.sdklibrary.R
 import com.udayasreetechnologies.sdklibrary.ui.productlist.adapters.ProductCategoryAdapter
 import com.udayasreetechnologies.sdklibrary.ui.productlist.adapters.ProductImageSliderAdapter
 import com.udayasreetechnologies.utilitylibrary.customuiview.AppUtility
+import com.udayasreetechnologies.utilitylibrary.customuiview.DeleteResponse
 import com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
 
 
-class ProductMainAdapter(val context : Context, val listener : OnProductMainAdapterListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ProductMainAdapter(val context : Context, val response : ArrayList<DeleteResponse>,  val listener : OnProductMainAdapterListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val IMAGE_SLIDER = 0
     private val PRODUCT_CATEGORY = 1
     private val PRODUCT_LIST = 2
-
-    private val sliderList = ArrayList<String>()
-    init {
-        sliderList.add("https://c.ndtvimg.com/2019-06/6r7r9j38_healthy-summer-diet-fruit-salad_625x300_17_June_19.jpg")
-        sliderList.add("https://c.ndtvimg.com/2019-06/6r7r9j38_healthy-summer-diet-fruit-salad_625x300_17_June_19.jpg")
-        sliderList.add("https://c.ndtvimg.com/2019-06/6r7r9j38_healthy-summer-diet-fruit-salad_625x300_17_June_19.jpg")
-        sliderList.add("https://c.ndtvimg.com/2019-06/6r7r9j38_healthy-summer-diet-fruit-salad_625x300_17_June_19.jpg")
-    }
 
     override fun getItemViewType(position: Int): Int {
         return when (position) {
@@ -69,14 +64,14 @@ class ProductMainAdapter(val context : Context, val listener : OnProductMainAdap
     }
 
     override fun getItemCount(): Int {
-        return 8
+        return response.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(getItemViewType(position)) {
             IMAGE_SLIDER -> {
                 val sHolder = ProductSliderHolder(holder.itemView)
-                sHolder.imageSlider.setSliderAdapter(ProductImageSliderAdapter(context, sliderList))
+                sHolder.imageSlider.setSliderAdapter(ProductImageSliderAdapter(context, response[position].bannerImages))
                 sHolder.imageSlider.setIndicatorAnimation(IndicatorAnimationType.WORM)
                 sHolder.imageSlider.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION)
                 sHolder.imageSlider.autoCycleDirection = SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH
@@ -87,13 +82,26 @@ class ProductMainAdapter(val context : Context, val listener : OnProductMainAdap
             PRODUCT_CATEGORY -> {
                 val cHolder = ProductCategoryHolder(holder.itemView)
                 cHolder.categoryRecyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-                val cAdapter = ProductCategoryAdapter()
+                val cAdapter = ProductCategoryAdapter(context, response[position].category)
                 cHolder.categoryRecyclerView.adapter = cAdapter
                 cAdapter.notifyDataSetChanged()
             }
 
             PRODUCT_LIST -> {
                 val lHolder = ProductListHolder(holder.itemView)
+                val model = response[position]
+                val requestOption = RequestOptions()
+                    .placeholder(R.drawable.icon_category_placeholder)
+                    .error(R.drawable.icon_category_placeholder)
+
+                lHolder?.productImage?.let {
+                    Glide.with(context)
+                        .setDefaultRequestOptions(requestOption)
+                        .load(model.productImage)
+                        .fitCenter()
+                        .into(it)
+                }
+                lHolder.productTitle.setText(model.productName)
             }
         }
     }
