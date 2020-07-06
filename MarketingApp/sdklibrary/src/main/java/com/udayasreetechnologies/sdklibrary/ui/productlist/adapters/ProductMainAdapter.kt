@@ -83,6 +83,7 @@ class ProductMainAdapter(val context : Context, val response : ArrayList<DeleteR
                 val cHolder = ProductCategoryHolder(holder.itemView)
                 cHolder.categoryRecyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
                 val cAdapter = ProductCategoryAdapter(context, response[position].category)
+                cHolder.categoryRecyclerView.setHasFixedSize(true)
                 cHolder.categoryRecyclerView.adapter = cAdapter
                 cAdapter.notifyDataSetChanged()
             }
@@ -101,7 +102,7 @@ class ProductMainAdapter(val context : Context, val response : ArrayList<DeleteR
                         .fitCenter()
                         .into(it)
                 }
-                lHolder.productTitle.setText(model.productName)
+                lHolder.productTitle.text = model.productName
             }
         }
     }

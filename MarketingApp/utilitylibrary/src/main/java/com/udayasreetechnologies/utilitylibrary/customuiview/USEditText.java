@@ -62,18 +62,18 @@ public class USEditText extends AppCompatEditText {
         try {
             Typeface typeface = null;
             switch (typefaceFont) {
-                case USButton.TypefaceFont.DESCRIPTION:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Desc.ttf");
+                case TypefaceFont.DESCRIPTION:
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Light.ttf");
                     break;
-                case USButton.TypefaceFont.SUBTITLE:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Subtitle.ttf");
+                case TypefaceFont.SUBTITLE:
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Medium.ttf");
                     break;
-                case USButton.TypefaceFont.TITLE:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Title.ttf");
+                case TypefaceFont.TITLE:
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Bold.ttf");
                     break;
-                case USButton.TypefaceFont.REGULAR:
+                case TypefaceFont.REGULAR:
                 default:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Regular.ttf");
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Regular.ttf");
                     break;
             }
             setTypeface(typeface);

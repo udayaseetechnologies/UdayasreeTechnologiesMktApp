@@ -62,22 +62,18 @@ public class USTextView extends AppCompatTextView {
         try {
             Typeface typeface = null;
             switch (typefaceFont) {
-                case USButton.TypefaceFont.DESCRIPTION:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Desc.ttf");
-                    setTextSize(26 / getResources().getDisplayMetrics().scaledDensity);
+                case TypefaceFont.DESCRIPTION:
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Light.ttf");
                     break;
-                case USButton.TypefaceFont.SUBTITLE:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Subtitle.ttf");
-                    setTextSize(28 / getResources().getDisplayMetrics().scaledDensity);
+                case TypefaceFont.SUBTITLE:
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Medium.ttf");
                     break;
-                case USButton.TypefaceFont.TITLE:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Title.ttf");
-                    setTextSize(36 / getResources().getDisplayMetrics().scaledDensity);
+                case TypefaceFont.TITLE:
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Bold.ttf");
                     break;
-                case USButton.TypefaceFont.REGULAR:
+                case TypefaceFont.REGULAR:
                 default:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Regular.ttf");
-                    setTextSize(32 / getResources().getDisplayMetrics().scaledDensity);
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Regular.ttf");
                     break;
             }
             setTypeface(typeface);

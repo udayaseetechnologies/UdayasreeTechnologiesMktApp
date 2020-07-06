@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Spinner
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.udayasreetechnologies.sdklibrary.GridSpacingItemDecorator
 import com.udayasreetechnologies.sdklibrary.R
 import com.udayasreetechnologies.sdklibrary.ui.productlist.adapters.ProductMainAdapter
 import com.udayasreetechnologies.utilitylibrary.customuiview.CategoryProduct
@@ -84,6 +85,8 @@ class ProductListFragment : Fragment(), ProductMainAdapter.OnProductMainAdapterL
             }
         }
         mRecyclerView.layoutManager = layoutManager
+        mRecyclerView.setHasFixedSize(true)
+        mRecyclerView.addItemDecoration(GridSpacingItemDecorator(10))
         mAdapter = ProductMainAdapter(mContext!!, createResponse(), this)
         mRecyclerView.adapter = mAdapter
         mAdapter.notifyDataSetChanged()

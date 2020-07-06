@@ -60,17 +60,17 @@ public class USButton extends AppCompatButton {
             Typeface typeface = null;
             switch (typefaceFont) {
                 case TypefaceFont.DESCRIPTION:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Desc.ttf");
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Light.ttf");
                     break;
                 case TypefaceFont.SUBTITLE:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Subtitle.ttf");
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Medium.ttf");
                     break;
                 case TypefaceFont.TITLE:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Title.ttf");
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Bold.ttf");
                     break;
                 case TypefaceFont.REGULAR:
                 default:
-                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/PlayfairDisplay_Regular.ttf");
+                    typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Tajawal-Regular.ttf");
                     break;
             }
             setTypeface(typeface);
