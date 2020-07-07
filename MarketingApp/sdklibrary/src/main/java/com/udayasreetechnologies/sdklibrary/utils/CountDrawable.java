@@ -1,4 +1,4 @@
-package com.udayasreetechnologies.sdklibrary;
+package com.udayasreetechnologies.sdklibrary.utils;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -11,6 +11,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 
 import androidx.core.content.ContextCompat;
+import com.udayasreetechnologies.sdklibrary.R;
 
 public class CountDrawable extends Drawable {
     private Paint mBadgePaint;

@@ -7,23 +7,28 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
-import androidx.core.view.MenuItemCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.udayasreetechnologies.sdklibrary.ui.productlist.ProductListFragment
+import com.udayasreetechnologies.sdklibrary.utils.AppConstants
+import com.udayasreetechnologies.sdklibrary.utils.CountDrawable
 import com.udayasreetechnologies.utilitylibrary.customuiview.AppUtility
 import com.udayasreetechnologies.utilitylibrary.customuiview.searchview.MaterialSearchView
 
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
     ProductListFragment.OnHomeFragmentListener {
+
+    private var red = 0
+    private var green = 0
+    private var blue = 0
 
     private lateinit var permissions: Array<String>
     private lateinit var toolbar: Toolbar
@@ -35,16 +40,40 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //ThemeColors(this)
         setContentView(R.layout.activity_home)
 
         toolbar = findViewById(R.id.home_toolbar)
         setSupportActionBar(toolbar)
         initScreenSize()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            checkRunTimePermissions()
+
+        if (bundleData()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                checkRunTimePermissions()
+            } else {
+                initView()
+            }
         } else {
-            initView()
+            AlertDialog.Builder(this, android.R.style.Theme_Dialog)
+                .setPositiveButton("Exit"){dialog, _ ->
+                    dialog.dismiss()
+                }
+                .setTitle("Failed")
+                .setMessage("")
+                .create().show()
         }
+    }
+
+    private fun bundleData() : Boolean {
+        val bundle = intent.extras
+        if (bundle?.containsKey("PREFERENCE_NAME")!! && bundle.containsKey("PACKAGE_NAME")
+            && bundle.containsKey("PACKAGE_VERSION")) {
+            AppUtility.PREFERENCE_NAME = intent.extras?.getString("PREFERENCE_NAME")!!
+            AppUtility.PACKAGE_NAME = intent.extras?.getString("PACKAGE_NAME")!!
+            AppUtility.PACKAGE_VERSION = intent.extras?.getString("PACKAGE_VERSION")!!
+            return true
+        }
+        return false
     }
 
     private fun initScreenSize() {
@@ -189,5 +218,12 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else {
             super.onBackPressed()
         }
+    }
+
+    override fun onResume() {
+        /*Handler().postDelayed({
+            ThemeColors.setNewThemeColor(this@HomeActivity, red, green, blue)
+        }, 1000)*/
+        super.onResume()
     }
 }

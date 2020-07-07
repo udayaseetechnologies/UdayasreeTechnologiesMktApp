@@ -11,4 +11,7 @@
     <string name="product_title">Product Title</string>
     <string name="product_subtitle">Product Subtitle</string>
     <string name="add_to_cart">Add to cart</string>
+
+
+    <string name="response_fail">Failed to fetch response from server</string>
 </resources>

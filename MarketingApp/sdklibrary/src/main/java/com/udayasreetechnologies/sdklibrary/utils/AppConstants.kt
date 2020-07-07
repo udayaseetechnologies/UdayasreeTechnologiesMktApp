@@ -1,4 +1,4 @@
-package com.udayasreetechnologies.sdklibrary
+package com.udayasreetechnologies.sdklibrary.utils
 
 class AppConstants {
     companion object {
