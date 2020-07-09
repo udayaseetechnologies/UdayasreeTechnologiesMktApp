@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".LoginFragment">
+
+    <androidx.cardview.widget.CardView
+            app:cardElevation="@dimen/padding_5dp"
+            app:cardCornerRadius="@dimen/padding_5dp"
+            android:layout_margin="@dimen/padding_10dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_margin="@dimen/padding_5dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
+                        android:hint="Email Id"
+                        app:typefaceEditText="regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="@dimen/padding_10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
+                        android:hint="Pasword"
+                        app:typefaceEditText="regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.udayasreetechnologies.utilitylibrary.customuiview.USButton
+            android:text="Login"
+            app:typefaceButton="regular"
+            android:textColor="@color/color_white"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>

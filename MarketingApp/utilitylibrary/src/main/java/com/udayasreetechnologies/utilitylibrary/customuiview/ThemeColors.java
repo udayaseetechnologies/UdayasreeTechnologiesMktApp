@@ -1,4 +1,4 @@
-package com.udayasreetechnologies.sdklibrary;
+package com.udayasreetechnologies.utilitylibrary.customuiview;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +9,9 @@ import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.ColorInt;
+import com.udayasreetechnologies.utilitylibrary.R;
 
-public class ThemeColors {
+class ThemeColors {
     private static final String NAME = "ThemeColors", KEY = "color";
 
     @ColorInt
@@ -45,25 +46,25 @@ public class ThemeColors {
         }
     }
 
-    static void setNewThemeColor(Activity activity, String color) {
+     static void setNewThemeColor(Activity activity, String color) {
 
         if (color.contains("#")) {
             color = color.replace("#", "");
         }
 
-        String stringColor = color;
-        SharedPreferences.Editor editor = activity.getSharedPreferences(NAME, Context.MODE_PRIVATE).edit();
-        editor.putString(KEY, stringColor);
-        editor.apply();
+         String stringColor = color;
+         SharedPreferences.Editor editor = activity.getSharedPreferences(NAME, Context.MODE_PRIVATE).edit();
+         editor.putString(KEY, stringColor);
+         editor.apply();
 
-        Log.wtf("setNewThemeColor", "AAA");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) activity.recreate();
-        else {
-            Intent i = activity.getPackageManager().getLaunchIntentForPackage(activity.getPackageName());
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            activity.startActivity(i);
-        }
-    }
+         Log.wtf("setNewThemeColor", "AAA");
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) activity.recreate();
+         else {
+             Intent i = activity.getPackageManager().getLaunchIntentForPackage(activity.getPackageName());
+             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+             activity.startActivity(i);
+         }
+     }
 
     private boolean isLightActionBar() {// Checking if title text color will be black
         int rgb = (Color.red(color) + Color.green(color) + Color.blue(color)) / 3;

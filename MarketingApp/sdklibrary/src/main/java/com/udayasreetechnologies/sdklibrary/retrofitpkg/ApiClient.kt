@@ -1,6 +1,7 @@
 package com.udayasreetechnologies.sdklibrary.retrofitpkg
 
 
+import com.udayasreetechnologies.sdklibrary.retrofitpkg.apiutils.ApiConstant
 import com.udayasreetechnologies.sdklibrary.retrofitpkg.apiutils.URLUtility
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -38,6 +39,20 @@ class ApiClient {
                     .build()
             }
             return retrofit
+        }
+
+
+        private val POSTAL_BASE_URL = "http://www.postalpincode.in/"
+        private var postalRetrofit : Retrofit? = null
+        fun getPostalApiClient() : Retrofit? {
+            if (postalRetrofit == null) {
+                postalRetrofit = Retrofit.Builder()
+                    .baseUrl(POSTAL_BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(okHttpClient)
+                    .build()
+            }
+            return postalRetrofit
         }
     }
 }
