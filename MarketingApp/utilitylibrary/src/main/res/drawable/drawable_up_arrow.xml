@@ -6,8 +6,6 @@
                 <stroke android:color="@color/color_white"
                         android:width="10dp"/>
                 <solid android:color="@color/color_white" />
-                <size android:width="30dp"
-                      android:height="30dp"/>
             </shape>
         </rotate>
     </item>

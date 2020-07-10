@@ -5,50 +5,86 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".LoginFragment">
+        tools:context=".ui.signin.LoginFragment">
 
     <androidx.cardview.widget.CardView
+            android:layout_centerInParent="true"
             app:cardElevation="@dimen/padding_5dp"
             app:cardCornerRadius="@dimen/padding_5dp"
             android:layout_margin="@dimen/padding_10dp"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <LinearLayout
                 android:layout_margin="@dimen/padding_5dp"
                 android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="@dimen/padding_20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
+                        android:id="@+id/frag_login_email_id"
                         android:hint="Email Id"
+                        android:paddingStart="@dimen/padding_5dp"
+                        android:paddingEnd="@dimen/padding_5dp"
+                        android:inputType="textEmailAddress"
                         app:typefaceEditText="regular"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                    android:layout_marginTop="@dimen/padding_10dp"
+                    android:layout_marginTop="@dimen/padding_20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
+                        android:id="@+id/frag_login_password_id"
                         android:hint="Pasword"
+                        android:paddingStart="@dimen/padding_5dp"
+                        android:paddingEnd="@dimen/padding_5dp"
+                        android:inputType="textPassword"
                         app:typefaceEditText="regular"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
             </com.google.android.material.textfield.TextInputLayout>
+
+            <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                    android:id="@+id/frag_login_reset_action"
+                    android:text="Reset Password"
+                    app:typefaceTextView="subtitle"
+                    android:padding="@dimen/padding_10dp"
+                    android:layout_marginTop="@dimen/padding_20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                    android:id="@+id/frag_login_register_action"
+                    android:text="Register a new account"
+                    app:typefaceTextView="subtitle"
+                    android:padding="@dimen/padding_10dp"
+                    android:layout_marginTop="@dimen/padding_20dp"
+                    android:layout_marginBottom="@dimen/padding_20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <com.udayasreetechnologies.utilitylibrary.customuiview.USButton
+            android:id="@+id/frag_login_login_action"
             android:text="Login"
             app:typefaceButton="regular"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/color_white"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/rect_login"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

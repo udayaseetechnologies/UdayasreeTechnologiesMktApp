@@ -26,15 +26,15 @@
                     android:id="@+id/signin_login_arrow_id"
                     android:background="@drawable/drawable_up_arrow"
                     android:layout_marginStart="30dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
             <FrameLayout
                     android:id="@+id/signin_register_arrow_id"
                     android:background="@drawable/drawable_up_arrow"
                     android:layout_marginEnd="30dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -42,7 +42,7 @@
                 android:layout_marginBottom="15dp"
                 android:weightSum="2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="?android:actionBarSize">
             <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
                     android:id="@+id/signin_login_action"
                     android:text="Login"

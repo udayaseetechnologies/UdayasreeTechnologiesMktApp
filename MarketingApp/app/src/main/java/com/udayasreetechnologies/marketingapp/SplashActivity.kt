@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.udayasreetechnologies.sdklibrary.HomeActivity
+import com.udayasreetechnologies.sdklibrary.SignInActivity
 import com.udayasreetechnologies.sdklibrary.utils.SharedPreferenceUtils
 
 class SplashActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
         preferenceUtils.setPackageName(packageName)
         preferenceUtils.setPackageVersion(appVersion)
 
-        val intent = Intent(this, HomeActivity::class.java)
+        val intent = Intent(this, SignInActivity::class.java)
         intent.putExtra("PREFERENCE_NAME", "USS_APP")
         intent.putExtra("PACKAGE_NAME", packageName)
         intent.putExtra("PACKAGE_VERSION", appVersion)

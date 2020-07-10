@@ -8,4 +8,12 @@
 
     <dimen name="search_icon_padding">12dp</dimen>
     <dimen name="search_view_text_padding">65dp</dimen>
+
+    <dimen name="padding_20dp">20dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="padding_5dp">5dp</dimen>
+    <dimen name="padding_3dp">3dp</dimen>
+    <dimen name="padding_2dp">2dp</dimen>
+    <dimen name="padding_1dp">1dp</dimen>
 </resources>
