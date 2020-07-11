@@ -1,4 +1,0 @@
-include ':sdklibrary'
-include ':utilitylibrary'
-include ':app'
-rootProject.name = "Marketing Application"
