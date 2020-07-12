@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"/>
     <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
             android:id="@+id/row_product_category_title"
-            android:text="Category"
+            android:text="@string/category"
             app:typefaceTextView="description"
             android:gravity="center"
             android:layout_gravity="center"

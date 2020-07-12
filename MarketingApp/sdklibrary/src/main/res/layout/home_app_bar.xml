@@ -25,10 +25,4 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/home_appbar" />
-
-    <com.udayasreetechnologies.utilitylibrary.customuiview.searchview.MaterialSearchView
-            android:id="@+id/home_searchview"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 </RelativeLayout>

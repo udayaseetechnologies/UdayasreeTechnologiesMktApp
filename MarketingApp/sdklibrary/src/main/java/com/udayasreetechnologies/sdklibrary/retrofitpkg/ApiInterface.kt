@@ -16,7 +16,6 @@ interface ApiInterface {
     fun getHomeMainApi(
         @Field("consumerKey") consumerKey: String,
         @Field("consumerSecret") consumerSecret: String,
-        @Field("leveltype") leveltype: String,
         @Field("packageId") packageId: String,
         @Field("appVersion") appVersion: String
     ): Call<HomeMainModel>
@@ -32,7 +31,48 @@ interface ApiInterface {
         @Field("parentId") parentId: String
     ): Call<List<AllCategoryModel>>
 
+    @FormUrlEncoded
+    @POST("/demowebsite/customrest/jsonapidetails/getproductbycategory")
+    fun getProductListByCategory(
+        @Field("consumerKey") consumerKey : String,
+        @Field("consumerSecret") consumerSecret : String,
+        @Field("packageId") packageId : String,
+        @Field("appVersion") appVersion : String,
+        @Field("categoryId") categoryId : String
+    )
 
+    @FormUrlEncoded
+    @POST("/demowebsite/customrest/jsonapidetails/getproductdetail")
+    fun getProductDetail(
+        @Field("consumerKey") consumerKey : String,
+        @Field("consumerSecret") consumerSecret : String,
+        @Field("packageId") packageId : String,
+        @Field("appVersion") appVersion : String,
+        @Field("productId") productId : String
+    )
+
+    @FormUrlEncoded
+    @POST("/demowebsite/customrest/staticorder/setUserBillingAddress")
+    fun userRegistrationOrUpdate(
+        @Field("consumerKey") consumerKey : String,
+        @Field("consumerSecret") consumerSecret : String,
+        @Field("packageId") packageId : String,
+        @Field("appVersion") appVersion : String,
+        @Field("fName") firstName : String,
+        @Field("lName") lastName : String,
+        @Field("mobileno") mobile : String,
+        @Field("emailId") emailId : String,
+        @Field("password") password : String,
+        @Field("street0") address1 : String,
+        @Field("street1") address2 : String,
+        @Field("landmark") landmark : String,
+        @Field("country") country : String,
+        @Field("region") state : String,
+        @Field("city") city : String,
+        @Field("addressType") addressType : String,
+        @Field("postcode") postalCode : String,
+        @Field("reqType") reqType : String
+    )
 
 
     /*
@@ -40,7 +80,8 @@ interface ApiInterface {
 (consumerKey,consumerSecret,packageId,appVersion)
 
 2. http://68.183.82.193/demowebsite/customrest/staticorder/setUserBillingAddress
-(emailId,consumerKey,consumerSecret,,packageId,appVersion,fName,lName,street0,street1,postcode,addressType,landmark,country,region,city,password,reqType=>SIGN_UP)
+(emailId,consumerKey,consumerSecret,,packageId,appVersion,fName,lName,street0,street1,postcode,addressType,
+landmark,country,region,city,password,reqType=>SIGN_UP)
 
 3. http://68.183.82.193/demowebsite/customrest/jsonapidetails/getcategoryAll
 (consumerKey,consumerSecret,,packageId,appVersion,parentId,leveltype)

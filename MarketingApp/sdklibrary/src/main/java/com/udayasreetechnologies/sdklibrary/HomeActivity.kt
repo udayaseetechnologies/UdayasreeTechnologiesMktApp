@@ -1,6 +1,7 @@
 package com.udayasreetechnologies.sdklibrary
 
 import android.Manifest
+import android.content.Intent
 import android.graphics.Point
 import android.graphics.drawable.LayerDrawable
 import android.os.Build
@@ -26,15 +27,11 @@ import com.udayasreetechnologies.utilitylibrary.customuiview.searchview.Material
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
     ProductListFragment.OnHomeFragmentListener {
 
-    private var red = 0
-    private var green = 0
-    private var blue = 0
-
+    private var mFragmentPosition : Int = 0
     private lateinit var permissions: Array<String>
     private lateinit var toolbar: Toolbar
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
-    private lateinit var searchView : MaterialSearchView
 
     private var menuItem: MenuItem? = null
 
@@ -55,11 +52,12 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         } else {
             AlertDialog.Builder(this, android.R.style.Theme_Dialog)
-                .setPositiveButton("Exit"){dialog, _ ->
+                .setPositiveButton(R.string.exit){dialog, _ ->
                     dialog.dismiss()
+                    finishAffinity()
                 }
-                .setTitle("Failed")
-                .setMessage("")
+                .setTitle(R.string.failed)
+                .setMessage(R.string.error_data_missing)
                 .create().show()
         }
     }
@@ -86,7 +84,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun initView() {
         drawerLayout = findViewById(R.id.home_drawer_layout)
         navView = findViewById(R.id.home_nav_view)
-        searchView = findViewById(R.id.home_searchview)
 
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawerLayout.addDrawerListener(toggle)
@@ -212,10 +209,26 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    private fun onBackPressedAction(): Boolean {
+        when(mFragmentPosition) {
+            0 -> {
+
+            }
+            else -> {
+                return true
+            }
+        }
+        return false
+    }
+
     override fun onBackPressed() {
-        if (searchView.isSearchOpen){
-            searchView.closeSearch()
-        } else {
+        if (onBackPressedAction()) {
+            val intent = Intent(Intent.ACTION_MAIN)
+            intent.addCategory(Intent.CATEGORY_HOME)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            clearBackStack()
+            startActivity(intent)
+            finishAffinity()
             super.onBackPressed()
         }
     }

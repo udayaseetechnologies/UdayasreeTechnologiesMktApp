@@ -1,47 +1,35 @@
 package com.udayasreetechnologies.sdklibrary
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.udayasreetechnologies.sdklibrary.ui.signin.LoginFragment
 import com.udayasreetechnologies.sdklibrary.ui.signin.RegisterFragment
+import com.udayasreetechnologies.sdklibrary.ui.signin.models.DetailModel
+import com.udayasreetechnologies.sdklibrary.utils.SharedPreferenceUtils
+import com.udayasreetechnologies.utilitylibrary.customuiview.AppUtility
 import com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
 
-class SignInActivity : AppCompatActivity(), View.OnClickListener, LoginFragment.OnLoginFragmentCallBack,
-    RegisterFragment.OnRegisterFragmentCallBack {
+class SignInActivity : AppCompatActivity(), LoginFragment.OnLoginFragmentCallBack, RegisterFragment.OnRegisterFragmentCallBack {
 
-    private lateinit var imageView : ImageView
-
-    private lateinit var arrowLogin : FrameLayout
-    private lateinit var arrowRegister : FrameLayout
-
-    private lateinit var loginAction : USTextView
-    private lateinit var registerAction : USTextView
+    private var mFragmentCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
-        initView()
+        loginFragment()
     }
 
-    private fun initView() {
-        imageView = findViewById(R.id.signin_image_id)
-
-        arrowLogin = findViewById(R.id.signin_login_arrow_id)
-        arrowRegister = findViewById(R.id.signin_register_arrow_id)
-
-        loginAction = findViewById(R.id.signin_login_action)
-        registerAction = findViewById(R.id.signin_register_action)
-
-        loginAction.setOnClickListener(this)
-        registerAction.setOnClickListener(this)
-
+    private fun loginFragment() {
         launchFragment(LoginFragment.newInstance(), true)
     }
 
@@ -57,27 +45,6 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener, LoginFragment.
                 )
                 .replace(R.id.signin_fragment_container, fragment)
                 .commit()
-            Handler().postDelayed({
-                if (isLogin) {
-                    arrowLogin.visibility = View.VISIBLE
-                    arrowRegister.visibility = View.INVISIBLE
-
-                    loginAction.background = ContextCompat.getDrawable(this, R.drawable.rect_login)
-                    registerAction.setBackgroundColor(ContextCompat.getColor(this, R.color.color_white))
-
-                    loginAction.setTextColor(ContextCompat.getColor(this, R.color.color_white))
-                    registerAction.setTextColor(ContextCompat.getColor(this, R.color.color_gray))
-                } else {
-                    arrowRegister.visibility = View.VISIBLE
-                    arrowLogin.visibility = View.INVISIBLE
-
-                    registerAction.background = ContextCompat.getDrawable(this, R.drawable.rect_login)
-                    loginAction.setBackgroundColor(ContextCompat.getColor(this, R.color.color_white))
-
-                    loginAction.setTextColor(ContextCompat.getColor(this, R.color.color_gray))
-                    registerAction.setTextColor(ContextCompat.getColor(this, R.color.color_white))
-                }
-            }, 200)
         }
     }
 
@@ -92,26 +59,43 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener, LoginFragment.
         }
     }
 
-    override fun onClick(view: View?) {
-        when(view?.id) {
-            R.id.signin_login_action -> {
-                launchFragment(LoginFragment.newInstance(), true)
-            }
-            R.id.signin_register_action -> {
-                launchFragment(RegisterFragment.newInstance(), false)
-            }
-        }
-    }
-
     override fun onNewRegistrationListener() {
         launchFragment(RegisterFragment.newInstance(), false)
     }
 
     override fun onAlreadyHaveAccountListener() {
-        launchFragment(LoginFragment.newInstance(), true)
+        loginFragment()
+    }
+
+    override fun onSkipActionListener() {
+        SharedPreferenceUtils(this).setFirstTimeLaunch(true)
+
+        val bundle = intent.extras
+        val intent = Intent(this, SignInActivity::class.java)
+        intent.putExtra("PREFERENCE_NAME", bundle?.getString("PREFERENCE_NAME")!!)
+        intent.putExtra("PACKAGE_NAME", bundle?.getString("PACKAGE_NAME")!!)
+        intent.putExtra("PACKAGE_VERSION", bundle?.getString("PACKAGE_VERSION")!!)
+        startActivity(intent)
+    }
+
+    override fun onUserLoginApiListener(detailModel: DetailModel) {
+
+    }
+
+    override fun onUserRegisterApiListener(detailModel: DetailModel) {
+
     }
 
     override fun onContextFailed() {
-        launchFragment(LoginFragment.newInstance(), true)
+        loginFragment()
+    }
+
+    override fun onBackPressed() {
+        if (mFragmentCount == 1) {
+            loginFragment()
+        } else {
+            finishAffinity()
+            super.onBackPressed()
+        }
     }
 }

@@ -1,7 +1,6 @@
 <resources>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="home">Home</string>
     <string name="settings">Settings</string>
     <string name="account">Account</string>
     <string name="wishlist">Wishlist</string>
@@ -12,6 +11,54 @@
     <string name="product_subtitle">Product Subtitle</string>
     <string name="add_to_cart">Add to cart</string>
 
+    <string name="error_data_missing">Some data is missing to continue into application. Please open app again</string>
+    <string name="error_name">Please enter your name</string>
+    <string name="error_contact">Please enter valid contact number</string>
+    <string name="error_email">Please enter a Valid Email Address</string>
+    <string name="error_password">Password must contain at least 8 characters</string>
+    <string name="error_address">Please enter your address</string>
+    <string name="error_landmark">Please enter your nearest landmark</string>
+    <string name="error_country">Please select your country</string>
+    <string name="error_state">Please select your state</string>
+    <string name="error_city">Please select your state</string>
+    <string name="error_postalcode">Please enter your postal code/pincode</string>
+    <string name="error_address_type">Please Select Address Type</string>
+
+    <string name="failed">Failed</string>
+    <string name="exit">Exit</string>
+    <string name="ok">OK</string>
 
     <string name="response_fail">Failed to fetch response from server</string>
+    <string name="skip">Skip</string>
+    <string name="login">Login</string>
+    <string name="email_id">Email Id</string>
+    <string name="password">Password</string>
+    <string name="reset_password">Forget Password? <font color='red'>click here</font></string>
+    <string name="singin">SingIn</string>
+    <string name="register_a_new_account">Register a new account <font color='red'>click here</font></string>
+    <string name="personal_details">Personal Details</string>
+    <string name="first_name">First Name*</string>
+    <string name="last_name">Last Name*</string>
+    <string name="mobile_number">Mobile Number*</string>
+    <string name="login_details">Login Details</string>
+    <string name="email_id_">Email Id*</string>
+    <string name="password_">Password*</string>
+    <string name="retype_password">Retype Password*</string>
+    <string name="shipping_address">Shipping Address</string>
+    <string name="address_1">Address 1*</string>
+    <string name="address_2">Address 2</string>
+    <string name="landmark">Landmark*</string>
+    <string name="country">Country*</string>
+    <string name="india">India</string>
+    <string name="state_region">State/Region*</string>
+    <string name="city_town">City/Town*</string>
+    <string name="postal_code">Postal Code*</string>
+    <string name="already_have_account">Already have account ?</string>
+    <string name="register">Register</string>
+    <string name="category">Category</string>
+    <string name="cart">Cart</string>
+    <string name="address_type">Address Type*</string>
+    <string name="home">Home</string>
+    <string name="work">Work</string>
+
 </resources>

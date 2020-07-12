@@ -7,10 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.udayasreetechnologies.sdklibrary.R
+import com.udayasreetechnologies.sdklibrary.ui.signin.models.DetailModel
 import com.udayasreetechnologies.utilitylibrary.customuiview.USButton
 import com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
 import com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -20,6 +24,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private var mContext : Context? = null
     private lateinit var listener : OnLoginFragmentCallBack
 
+    private lateinit var skipAction : USTextView
     private lateinit var emailIdET : USEditText
     private lateinit var passwordET : USEditText
     private lateinit var resetPasswordAction : USTextView
@@ -70,18 +75,34 @@ class LoginFragment : Fragment(), View.OnClickListener {
         emailIdET = view.findViewById(R.id.frag_login_email_id)
         passwordET = view.findViewById(R.id.frag_login_password_id)
 
+        skipAction = view.findViewById(R.id.frag_login_skip_action)
         resetPasswordAction = view.findViewById(R.id.frag_login_reset_action)
         registerAction = view.findViewById(R.id.frag_login_register_action)
         loginAction = view.findViewById(R.id.frag_login_login_action)
 
+        skipAction.setOnClickListener(this)
         resetPasswordAction.setOnClickListener(this)
         registerAction.setOnClickListener(this)
         loginAction.setOnClickListener(this)
     }
 
+    private fun isEmailValid(email: String): Boolean {
+        val expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"
+        val inputStr: CharSequence = email
+        val pattern: Pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
+        val matcher: Matcher = pattern.matcher(inputStr)
+        if (matcher.matches()) {
+            return true
+        }
+        return false
+    }
 
     override fun onClick(view: View?) {
         when(view?.id) {
+            R.id.frag_login_skip_action -> {
+                listener.onSkipActionListener()
+            }
+
             R.id.frag_login_reset_action -> {
 
             }
@@ -91,7 +112,21 @@ class LoginFragment : Fragment(), View.OnClickListener {
             }
 
             R.id.frag_login_login_action -> {
+                val email = emailIdET.text.toString()
+                val password = passwordET.text.toString()
+                val isEmailValid = isEmailValid(email)
 
+                if (isEmailValid && password.length >= 8) {
+                    listener.onUserLoginApiListener(DetailModel(email, password))
+                } else {
+                    if (!isEmailValid) {
+                        emailIdET.error = getString(R.string.error_email)
+                    }
+                    if (password.length < 8) {
+                        passwordET.setText("")
+                        passwordET.error = getString(R.string.error_password)
+                    }
+                }
             }
         }
     }
@@ -99,5 +134,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
     interface OnLoginFragmentCallBack {
         fun onContextFailed()
         fun onNewRegistrationListener()
+        fun onSkipActionListener()
+        fun onUserLoginApiListener(detailModel: DetailModel)
     }
 }

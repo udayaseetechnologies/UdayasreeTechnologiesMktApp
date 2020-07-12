@@ -4,10 +4,37 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_5dp"
+        android:background="@color/window_background"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".ui.signin.LoginFragment">
 
+    <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+            android:id="@+id/frag_login_skip_action"
+            android:text="@string/skip"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:typefaceTextView="title"
+            android:background="@drawable/rect_border"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="@dimen/padding_10dp"
+            android:paddingEnd="@dimen/padding_10dp"
+            android:layout_margin="@dimen/padding_20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+            android:text="@string/singin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:typefaceTextView="title"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/padding_5dp"
+            android:layout_above="@id/frag_login_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     <androidx.cardview.widget.CardView
+            android:id="@+id/frag_login_container"
             android:layout_centerInParent="true"
             app:cardElevation="@dimen/padding_5dp"
             app:cardCornerRadius="@dimen/padding_5dp"
@@ -28,7 +55,7 @@
                     android:layout_height="wrap_content">
                 <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                         android:id="@+id/frag_login_email_id"
-                        android:hint="Email Id"
+                        android:hint="@string/email_id"
                         android:paddingStart="@dimen/padding_5dp"
                         android:paddingEnd="@dimen/padding_5dp"
                         android:inputType="textEmailAddress"
@@ -44,7 +71,7 @@
                     android:layout_height="wrap_content">
                 <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                         android:id="@+id/frag_login_password_id"
-                        android:hint="Pasword"
+                        android:hint="@string/password"
                         android:paddingStart="@dimen/padding_5dp"
                         android:paddingEnd="@dimen/padding_5dp"
                         android:inputType="textPassword"
@@ -56,17 +83,28 @@
 
             <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
                     android:id="@+id/frag_login_reset_action"
-                    android:text="Reset Password"
+                    android:text="@string/reset_password"
                     app:typefaceTextView="subtitle"
                     android:padding="@dimen/padding_10dp"
-                    android:layout_marginTop="@dimen/padding_20dp"
+                    android:layout_margin="@dimen/padding_20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
+            <com.udayasreetechnologies.utilitylibrary.customuiview.USButton
+                    android:id="@+id/frag_login_login_action"
+                    android:text="@string/login"
+                    app:typefaceButton="regular"
+                    android:layout_margin="@dimen/padding_20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/color_white"
+                    android:background="@drawable/rect_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
             <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
                     android:id="@+id/frag_login_register_action"
-                    android:text="Register a new account"
+                    android:text="@string/register_a_new_account"
                     app:typefaceTextView="subtitle"
                     android:padding="@dimen/padding_10dp"
                     android:layout_marginTop="@dimen/padding_20dp"
@@ -77,16 +115,4 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <com.udayasreetechnologies.utilitylibrary.customuiview.USButton
-            android:id="@+id/frag_login_login_action"
-            android:text="Login"
-            app:typefaceButton="regular"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/color_white"
-            android:background="@drawable/rect_login"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
 </RelativeLayout>
