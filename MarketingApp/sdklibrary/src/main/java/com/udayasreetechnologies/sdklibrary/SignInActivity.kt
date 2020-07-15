@@ -1,6 +1,7 @@
 package com.udayasreetechnologies.sdklibrary
 
 import android.content.Intent
+import android.graphics.Point
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -26,10 +27,19 @@ class SignInActivity : AppCompatActivity(), LoginFragment.OnLoginFragmentCallBac
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
+        initScreenSize()
         loginFragment()
     }
 
+    private fun initScreenSize() {
+        val point = Point()
+        windowManager.defaultDisplay.getSize(point)
+        AppUtility.SCREEN_WIDTH = point.x
+        AppUtility.SCREEN_HEIGHT = point.y
+    }
+
     private fun loginFragment() {
+        mFragmentCount = 0
         launchFragment(LoginFragment.newInstance(), true)
     }
 
@@ -60,6 +70,7 @@ class SignInActivity : AppCompatActivity(), LoginFragment.OnLoginFragmentCallBac
     }
 
     override fun onNewRegistrationListener() {
+        mFragmentCount = 1
         launchFragment(RegisterFragment.newInstance(), false)
     }
 
@@ -71,7 +82,7 @@ class SignInActivity : AppCompatActivity(), LoginFragment.OnLoginFragmentCallBac
         SharedPreferenceUtils(this).setFirstTimeLaunch(true)
 
         val bundle = intent.extras
-        val intent = Intent(this, SignInActivity::class.java)
+        val intent = Intent(this, HomeActivity::class.java)
         intent.putExtra("PREFERENCE_NAME", bundle?.getString("PREFERENCE_NAME")!!)
         intent.putExtra("PACKAGE_NAME", bundle?.getString("PACKAGE_NAME")!!)
         intent.putExtra("PACKAGE_VERSION", bundle?.getString("PACKAGE_VERSION")!!)

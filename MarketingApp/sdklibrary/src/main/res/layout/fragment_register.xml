@@ -1,377 +1,451 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/window_background"
         tools:context=".ui.signin.RegisterFragment">
+
     <LinearLayout
-            android:orientation="vertical"
-            android:layout_margin="@dimen/padding_5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_5dp"
+            android:orientation="vertical">
 
         <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
-                android:text="@string/personal_details"
-                android:layout_marginTop="@dimen/padding_10dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:padding="@dimen/padding_3dp"
-                app:typefaceTextView="title"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:text="@string/registration"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:typefaceTextView="title" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_2dp"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:layout_marginBottom="@dimen/padding_5dp"
+                android:background="@color/color_gray" />
+
+        <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_10dp"
+                android:padding="@dimen/padding_3dp"
+                android:text="@string/personal_details"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:typefaceTextView="title" />
 
         <androidx.cardview.widget.CardView
-                app:cardElevation="@dimen/padding_5dp"
-                app:cardCornerRadius="@dimen/padding_5dp"
-                android:layout_margin="@dimen/padding_5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_5dp"
+                app:cardCornerRadius="@dimen/padding_5dp"
+                app:cardElevation="@dimen/padding_5dp">
+
             <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginStart="@dimen/padding_3dp"
-                    android:layout_marginEnd="@dimen/padding_3dp"
-                    android:layout_marginTop="@dimen/padding_10dp"
-                    android:layout_marginBottom="@dimen/padding_10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_3dp"
+                    android:layout_marginTop="@dimen/padding_10dp"
+                    android:layout_marginEnd="@dimen/padding_3dp"
+                    android:layout_marginBottom="@dimen/padding_10dp"
+                    android:orientation="vertical">
+
                 <LinearLayout
-                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/padding_10dp"
                         android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:weightSum="2">
+
                     <com.google.android.material.textfield.TextInputLayout
-                            android:layout_weight="1"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
                         <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                                 android:id="@+id/frag_reg_fname_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:hint="@string/first_name"
+                                android:imeOptions="actionNext"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
                                 android:paddingStart="@dimen/padding_5dp"
                                 android:paddingEnd="@dimen/padding_5dp"
-                                android:inputType="textCapWords"
-                                app:typefaceEditText="regular"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"/>
+                                app:typefaceEditText="regular" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                            android:layout_weight="1"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
                         <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                                 android:id="@+id/frag_reg_lname_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:hint="@string/last_name"
+                                android:imeOptions="actionNext"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
                                 android:paddingStart="@dimen/padding_5dp"
                                 android:paddingEnd="@dimen/padding_5dp"
-                                android:inputType="textCapWords"
-                                app:typefaceEditText="regular"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"/>
+                                app:typefaceEditText="regular" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_mobile_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/mobile_number"
-                            android:paddingStart="@dimen/padding_5dp"
-                            android:paddingEnd="@dimen/padding_5dp"
+                            android:imeOptions="actionNext"
                             android:inputType="phone"
                             android:maxLength="10"
-                            app:typefaceEditText="regular"
+                            android:maxLines="1"
+                            android:paddingStart="@dimen/padding_5dp"
+                            android:paddingEnd="@dimen/padding_5dp"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <View
-                android:background="@color/color_gray"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_2dp"
                 android:layout_marginTop="@dimen/padding_20dp"
                 android:layout_marginBottom="@dimen/padding_20dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/padding_2dp"/>
+                android:background="@color/color_gray" />
 
         <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_3dp"
                 android:text="@string/login_details"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:padding="@dimen/padding_3dp"
-                app:typefaceTextView="title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                app:typefaceTextView="title" />
 
         <androidx.cardview.widget.CardView
-                app:cardElevation="@dimen/padding_5dp"
-                app:cardCornerRadius="@dimen/padding_5dp"
-                android:layout_margin="@dimen/padding_5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_5dp"
+                app:cardCornerRadius="@dimen/padding_5dp"
+                app:cardElevation="@dimen/padding_5dp">
+
             <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/padding_3dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_3dp"
+                    android:orientation="vertical">
+
                 <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_10dp">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_email_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/email_id_"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
                             android:paddingStart="@dimen/padding_5dp"
                             android:paddingEnd="@dimen/padding_5dp"
-                            android:inputType="textEmailAddress"
-                            app:typefaceEditText="regular"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_10dp">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_password_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/password_"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPassword"
+                            android:maxLines="1"
                             android:paddingStart="@dimen/padding_5dp"
                             android:paddingEnd="@dimen/padding_5dp"
-                            android:inputType="textPassword"
-                            app:typefaceEditText="regular"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_10dp">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_retype_password_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/retype_password"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPassword"
+                            android:maxLines="1"
                             android:paddingStart="@dimen/padding_5dp"
                             android:paddingEnd="@dimen/padding_5dp"
-                            android:inputType="textPassword"
-                            app:typefaceEditText="regular"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <View
-                android:background="@color/color_gray"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_2dp"
                 android:layout_marginTop="@dimen/padding_20dp"
                 android:layout_marginBottom="@dimen/padding_20dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/padding_2dp"/>
+                android:background="@color/color_gray" />
 
         <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_3dp"
                 android:text="@string/shipping_address"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:padding="@dimen/padding_3dp"
-                app:typefaceTextView="title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                app:typefaceTextView="title" />
 
         <androidx.cardview.widget.CardView
-                app:cardElevation="@dimen/padding_5dp"
-                app:cardCornerRadius="@dimen/padding_5dp"
-                android:layout_margin="@dimen/padding_5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_5dp"
+                app:cardCornerRadius="@dimen/padding_5dp"
+                app:cardElevation="@dimen/padding_5dp">
+
             <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/padding_3dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_3dp"
+                    android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                        app:cardCornerRadius="@dimen/padding_5dp"
-                        app:cardElevation="@dimen/padding_5dp"
-                        android:layout_margin="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/padding_10dp"
+                        app:cardCornerRadius="@dimen/padding_5dp"
+                        app:cardElevation="@dimen/padding_5dp">
+
                     <LinearLayout
-                            android:layout_margin="@dimen/padding_2dp"
-                            android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/padding_2dp"
+                            android:orientation="vertical">
+
                         <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/padding_3dp"
                                 android:text="@string/address_type"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                                android:padding="@dimen/padding_3dp"
-                                app:typefaceTextView="title"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                app:typefaceTextView="title" />
+
                         <RadioGroup
                                 android:id="@+id/frag_reg_radio_group_id"
-                                android:layout_margin="@dimen/padding_2dp"
-                                android:padding="@dimen/padding_2dp"
-                                android:orientation="horizontal"
-                                android:weightSum="2"
-
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/padding_2dp"
+                                android:orientation="horizontal"
+
+                                android:padding="@dimen/padding_2dp"
+                                android:weightSum="2">
+
                             <RadioButton
                                     android:id="@+id/frag_reg_rb_home_id"
-                                    android:text="@string/home"
-                                    android:checked="true"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                                    android:layout_weight="1"
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"/>
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="true"
+                                    android:text="@string/home"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
                             <RadioButton
                                     android:id="@+id/frag_reg_rb_work_id"
-                                    android:text="@string/work"
-                                    android:checked="false"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                                    android:layout_weight="1"
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"/>
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="false"
+                                    android:text="@string/work"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
                         </RadioGroup>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_10dp">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_address1_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/address_1"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:maxLines="1"
                             android:paddingStart="@dimen/padding_5dp"
                             android:paddingEnd="@dimen/padding_5dp"
-                            android:inputType="textCapWords"
-                            app:typefaceEditText="regular"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_10dp">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_address2_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/address_2"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:maxLines="1"
                             android:paddingStart="@dimen/padding_5dp"
                             android:paddingEnd="@dimen/padding_5dp"
-                            android:inputType="textCapWords"
-                            app:typefaceEditText="regular"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_10dp">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_landmark_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/landmark"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:maxLines="1"
                             android:paddingStart="@dimen/padding_5dp"
                             android:paddingEnd="@dimen/padding_5dp"
-                            android:inputType="textCapWords"
-                            app:typefaceEditText="regular"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_10dp">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_country_id"
-                            android:hint="@string/country"
-                            android:text="@string/india"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:clickable="false"
                             android:editable="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:hint="@string/country"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:maxLines="1"
                             android:paddingStart="@dimen/padding_5dp"
                             android:paddingEnd="@dimen/padding_5dp"
-                            android:inputType="textCapWords"
-                            app:typefaceEditText="regular"
+                            android:text="@string/india"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_10dp">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_state_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/state_region"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:maxLines="1"
                             android:paddingStart="@dimen/padding_5dp"
                             android:paddingEnd="@dimen/padding_5dp"
-                            android:inputType="textCapWords"
-                            app:typefaceEditText="regular"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_10dp">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_city_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/city_town"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:maxLines="1"
                             android:paddingStart="@dimen/padding_5dp"
                             android:paddingEnd="@dimen/padding_5dp"
-                            android:inputType="textCapWords"
-                            app:typefaceEditText="regular"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="@dimen/padding_10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_10dp">
+
                     <com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
                             android:id="@+id/frag_reg_postalcode_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/postal_code"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:maxLines="1"
                             android:paddingStart="@dimen/padding_5dp"
                             android:paddingEnd="@dimen/padding_5dp"
-                            android:inputType="number"
-                            app:typefaceEditText="regular"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            app:typefaceEditText="regular" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
                 android:id="@+id/frag_reg_login_action"
-                android:text="@string/already_have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/padding_20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                app:textViewHtmlText="@string/already_have_account" />
 
         <com.udayasreetechnologies.utilitylibrary.customuiview.USButton
                 android:id="@+id/frag_reg_register_action"
-                android:text="@string/register"
-                app:typefaceButton="regular"
-                android:layout_margin="@dimen/padding_20dp"
-                android:textColor="@color/color_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_20dp"
+                android:layout_marginBottom="@dimen/padding_20dp"
                 android:background="@drawable/rect_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:text="@string/register"
+                android:textColor="@color/color_white"
+                app:typefaceButton="regular" />
     </LinearLayout>
 </ScrollView>

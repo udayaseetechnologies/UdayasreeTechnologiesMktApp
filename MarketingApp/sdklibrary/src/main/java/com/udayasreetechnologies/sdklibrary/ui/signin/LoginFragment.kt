@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.udayasreetechnologies.sdklibrary.R
 import com.udayasreetechnologies.sdklibrary.ui.signin.models.DetailModel
+import com.udayasreetechnologies.utilitylibrary.customuiview.AppUtility
 import com.udayasreetechnologies.utilitylibrary.customuiview.USButton
 import com.udayasreetechnologies.utilitylibrary.customuiview.USEditText
 import com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
@@ -42,10 +43,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
     }
 
     companion object {
-        fun newInstance(): LoginFragment {
-            val fragment = LoginFragment()
+        fun newInstance() = LoginFragment().apply {
 
-            return fragment
         }
     }
 
@@ -84,6 +83,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
         resetPasswordAction.setOnClickListener(this)
         registerAction.setOnClickListener(this)
         loginAction.setOnClickListener(this)
+
+        loginAction.layoutParams.width = (AppUtility.SCREEN_WIDTH * 0.6).toInt()
     }
 
     private fun isEmailValid(email: String): Boolean {

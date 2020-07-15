@@ -24,5 +24,6 @@ class SplashActivity : AppCompatActivity() {
         intent.putExtra("PACKAGE_NAME", packageName)
         intent.putExtra("PACKAGE_VERSION", appVersion)
         startActivity(intent)
+
     }
 }

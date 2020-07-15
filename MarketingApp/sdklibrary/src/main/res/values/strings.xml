@@ -34,8 +34,8 @@
     <string name="email_id">Email Id</string>
     <string name="password">Password</string>
     <string name="reset_password">Forget Password? <font color='red'>click here</font></string>
-    <string name="singin">SingIn</string>
-    <string name="register_a_new_account">Register a new account <font color='red'>click here</font></string>
+    <string name="singin">SIGN IN</string>
+    <string name="register_a_new_account">Register a new account? <font color='red'>click here</font></string>
     <string name="personal_details">Personal Details</string>
     <string name="first_name">First Name*</string>
     <string name="last_name">Last Name*</string>
@@ -55,6 +55,7 @@
     <string name="postal_code">Postal Code*</string>
     <string name="already_have_account">Already have account ?</string>
     <string name="register">Register</string>
+    <string name="registration">Registration</string>
     <string name="category">Category</string>
     <string name="cart">Cart</string>
     <string name="address_type">Address Type*</string>

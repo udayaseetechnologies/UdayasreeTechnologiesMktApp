@@ -3,6 +3,8 @@ package com.udayasreetechnologies.utilitylibrary.customuiview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.os.Build;
+import android.text.Html;
 import android.util.AttributeSet;
 
 import androidx.annotation.IntDef;
@@ -25,7 +27,7 @@ public class USTextView extends AppCompatTextView {
     }
 
     private Context context;
-    private int typefaceFont = USButton.TypefaceFont.REGULAR;
+    private int typefaceFont = TypefaceFont.REGULAR;
 
     public USTextView(Context context) {
         super(context);
@@ -50,6 +52,10 @@ public class USTextView extends AppCompatTextView {
             if (attrs != null) {
                 TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.USTextView);
                 typefaceFont = typedArray.getInt(R.styleable.USTextView_typefaceTextView, USButton.TypefaceFont.REGULAR);
+                String htmlText = typedArray.getString(R.styleable.USTextView_textViewHtmlText);
+                if (htmlText != null && !htmlText.equals("")) {
+                    setHtmlText(htmlText);
+                }
                 setTypefaceFont();
                 typedArray.recycle();
             }
@@ -79,6 +85,14 @@ public class USTextView extends AppCompatTextView {
             setTypeface(typeface);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void setHtmlText(String htmlText) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            setText(Html.fromHtml(htmlText, Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            setText(Html.fromHtml(htmlText));
         }
     }
 }

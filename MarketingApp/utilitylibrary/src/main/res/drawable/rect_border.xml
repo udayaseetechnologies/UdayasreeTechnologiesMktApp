@@ -4,5 +4,5 @@
     <corners android:radius="@dimen/padding_20dp"/>
     <solid android:color="@color/color_white"/>
     <stroke android:color="@color/color_gray"
-        android:width="@dimen/padding_2dp"/>
+        android:width="@dimen/padding_1dp"/>
 </shape>

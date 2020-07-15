@@ -27,8 +27,7 @@ class ProductListFragment : Fragment(), ProductMainAdapter.OnProductMainAdapterL
 
     companion object {
         @JvmStatic
-        fun newInstance() =
-            ProductListFragment().apply {
+        fun newInstance() = ProductListFragment().apply {
                 /*arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

@@ -58,10 +58,8 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     }
 
     companion object {
-        fun newInstance(): RegisterFragment {
-            val fragment = RegisterFragment()
+        fun newInstance() = RegisterFragment().apply {
 
-            return fragment
         }
     }
 
@@ -109,6 +107,8 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
         loginAction = view.findViewById(R.id.frag_reg_login_action)
         registerAction = view.findViewById(R.id.frag_reg_register_action)
+
+        registerAction.layoutParams.width = (AppUtility.SCREEN_WIDTH * 0.8).toInt()
 
         loginAction.setOnClickListener(this)
         registerAction.setOnClickListener(this)

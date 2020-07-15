@@ -16,7 +16,7 @@ import java.lang.annotation.RetentionPolicy;
 public class USEditText extends AppCompatEditText {
 
     @Retention(RetentionPolicy.SOURCE)
-    @IntDef({USButton.TypefaceFont.REGULAR, USButton.TypefaceFont.DESCRIPTION, USButton.TypefaceFont.TITLE, USButton.TypefaceFont.SUBTITLE})
+    @IntDef({TypefaceFont.REGULAR, TypefaceFont.DESCRIPTION, TypefaceFont.TITLE, TypefaceFont.SUBTITLE})
     public @interface TypefaceFont {
         int REGULAR = 0;
         int DESCRIPTION = 1;
@@ -25,7 +25,7 @@ public class USEditText extends AppCompatEditText {
     }
 
     private Context context;
-    private int typefaceFont = USButton.TypefaceFont.REGULAR;
+    private int typefaceFont = TypefaceFont.REGULAR;
 
     public USEditText(Context context) {
         super(context);

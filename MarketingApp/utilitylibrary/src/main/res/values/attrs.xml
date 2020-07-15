@@ -16,6 +16,7 @@
             <enum name="title" value="2"/>
             <enum name="subtitle" value="3"/>
         </attr>
+        <attr name="textViewHtmlText" format="string"/>
     </declare-styleable>
 
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/frag_home_recyclerview_id"
+        android:id="@+id/category_list_recycler_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/window_background"
         android:paddingBottom="@dimen/padding_5dp"
-        tools:context=".ui.productlist.ProductListFragment" />
+        tools:context=".ui.categorylist.CategoryListFragment" />
