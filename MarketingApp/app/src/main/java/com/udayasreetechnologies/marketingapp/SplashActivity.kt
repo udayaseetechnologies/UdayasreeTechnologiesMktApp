@@ -3,8 +3,7 @@ package com.udayasreetechnologies.marketingapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.udayasreetechnologies.sdklibrary.HomeActivity
-import com.udayasreetechnologies.sdklibrary.SignInActivity
+import com.udayasreetechnologies.sdklibrary.ui.signin.SignInActivity
 import com.udayasreetechnologies.sdklibrary.utils.SharedPreferenceUtils
 
 class SplashActivity : AppCompatActivity() {

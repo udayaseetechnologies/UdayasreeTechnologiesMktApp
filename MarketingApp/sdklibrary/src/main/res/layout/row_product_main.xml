@@ -29,9 +29,9 @@
                 android:id="@+id/row_productlist_price"
                 android:layout_below="@+id/row_productlist_title_id"
                 android:text="Rs.180/piece"
-                android:visibility="gone"
+                android:paddingStart="@dimen/padding_5dp"
+                android:paddingEnd="@dimen/padding_5dp"
                 app:typefaceTextView="regular"
-                android:gravity="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -54,10 +54,12 @@
                 app:typefaceTextView="regular" />
 
         <ImageView
-                android:src="@drawable/ic_unwishllist_24dp"
+                android:id="@+id/row_productlist_wishlist_action"
+                android:background="@drawable/ic_unwishllist_24dp"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="@dimen/padding_2dp"
+                android:layout_margin="@dimen/padding_10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

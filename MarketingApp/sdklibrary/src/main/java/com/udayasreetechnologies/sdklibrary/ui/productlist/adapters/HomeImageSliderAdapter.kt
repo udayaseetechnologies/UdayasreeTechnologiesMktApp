@@ -11,7 +11,7 @@ import com.smarteist.autoimageslider.SliderViewAdapter
 import com.udayasreetechnologies.sdklibrary.R
 import com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
 
-class ProductImageSliderAdapter(val context : Context, val sliderImageList : ArrayList<String>) : SliderViewAdapter<ProductImageSliderAdapter.ProductImageSliderHolder>() {
+class HomeImageSliderAdapter(val context : Context, val sliderImageList : List<String>) : SliderViewAdapter<HomeImageSliderAdapter.ProductImageSliderHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?): ProductImageSliderHolder {
         return ProductImageSliderHolder(LayoutInflater.from(parent?.context).inflate(R.layout.row_product_imageslider,

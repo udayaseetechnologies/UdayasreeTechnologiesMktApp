@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.productdetail.ProductDetailActivity">
+
+    <ScrollView
+            android:layout_marginBottom="?android:actionBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                    android:id="@+id/product_detail_location_id"
+                    android:text="Deliver to 560070"
+                    app:typefaceTextView="regular"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_5dp"
+                    android:drawableStart="@drawable/ic_location_32dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <View
+                    android:layout_marginTop="@dimen/padding_5dp"
+                    android:layout_marginBottom="@dimen/padding_5dp"
+                    android:background="@color/color_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding_2dp"/>
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <com.smarteist.autoimageslider.SliderView
+                        android:id="@+id/product_detail_imageSlider_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:sliderAnimationDuration="600"
+                        app:sliderAutoCycleDirection="back_and_forth"
+                        app:sliderAutoCycleEnabled="true"
+                        app:sliderIndicatorAnimationDuration="600"
+                        app:sliderIndicatorGravity="center_horizontal|bottom"
+                        app:sliderIndicatorMargin="15dp"
+                        app:sliderIndicatorOrientation="horizontal"
+                        app:sliderIndicatorPadding="3dp"
+                        app:sliderIndicatorRadius="2dp"
+                        app:sliderIndicatorSelectedColor="@color/colorAccent"
+                        app:sliderIndicatorUnselectedColor="@color/color_white"
+                        app:sliderScrollTimeInSec="3"
+                        app:sliderStartAutoCycle="true" />
+
+                <ImageView
+                        android:id="@+id/product_detail_wishlist_action"
+                        android:background="@drawable/ic_unwishllist_24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="@dimen/padding_10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <View
+                    android:layout_marginTop="@dimen/padding_5dp"
+                    android:layout_marginBottom="@dimen/padding_5dp"
+                    android:background="@color/color_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding_2dp"/>
+
+            <LinearLayout
+                    android:id="@+id/product_detail_recycler_quantity_container"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                        android:text="@string/select_item_quantity"
+                        app:typefaceTextView="regular"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:padding="@dimen/padding_5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/product_detail_quantity_type_recycler"
+                        android:padding="@dimen/padding_5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/product_detail_count_quantity_container"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:actionBarSize">
+                <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                        android:text="Select required quantity in Piece(s)"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:gravity="center"
+                        app:typefaceTextView="regular"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"/>
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    <ImageView
+                            android:id="@+id/product_detail_count_minus_action"
+                            app:srcCompat="@drawable/ic_minus_32dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                            android:id="@+id/product_detail_count_text_id"
+                            android:layout_marginStart="@dimen/padding_5dp"
+                            android:layout_marginEnd="@dimen/padding_5dp"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:digits="0123456789"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"/>
+
+                    <ImageView
+                            android:id="@+id/product_detail_count_plus_action"
+                            app:srcCompat="@drawable/ic_plus_32dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                    android:layout_marginTop="@dimen/padding_5dp"
+                    android:layout_marginBottom="@dimen/padding_5dp"
+                    android:background="@color/color_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding_2dp"/>
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                        android:text="Product Description"
+                        app:typefaceTextView="regular"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:padding="@dimen/padding_5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                        android:id="@+id/product_detail_description_id"
+                        app:typefaceTextView="description"
+                        android:gravity="start"
+                        android:layout_gravity="start"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:padding="@dimen/padding_5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View
+                    android:layout_marginTop="@dimen/padding_5dp"
+                    android:layout_marginBottom="@dimen/padding_5dp"
+                    android:background="@color/color_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding_2dp"/>
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                        android:text="Product Review"
+                        app:typefaceTextView="regular"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:padding="@dimen/padding_5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/product_detail_review_recyclerview"
+                        android:padding="@dimen/padding_5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+            android:weightSum="2"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize">
+        <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                android:id="@+id/product_detail_proceedToPayment_id"
+                android:visibility="invisible"
+                android:text="Check Out"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        <com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
+                android:id="@+id/product_detail_addToCart_id"
+                android:background="@color/colorAccent"
+                android:textColor="@color/color_white"
+                app:typefaceTextView="regular"
+                android:text="Add To Cart"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+    </LinearLayout>
+</RelativeLayout>

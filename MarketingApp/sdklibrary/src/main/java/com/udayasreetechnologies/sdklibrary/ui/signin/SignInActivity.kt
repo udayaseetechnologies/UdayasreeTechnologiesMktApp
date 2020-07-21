@@ -1,23 +1,15 @@
-package com.udayasreetechnologies.sdklibrary
+package com.udayasreetechnologies.sdklibrary.ui.signin
 
 import android.content.Intent
 import android.graphics.Point
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.View
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.LinearLayout
-import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.udayasreetechnologies.sdklibrary.ui.signin.LoginFragment
-import com.udayasreetechnologies.sdklibrary.ui.signin.RegisterFragment
+import com.udayasreetechnologies.sdklibrary.HomeActivity
+import com.udayasreetechnologies.sdklibrary.R
 import com.udayasreetechnologies.sdklibrary.ui.signin.models.DetailModel
 import com.udayasreetechnologies.sdklibrary.utils.SharedPreferenceUtils
 import com.udayasreetechnologies.utilitylibrary.customuiview.AppUtility
-import com.udayasreetechnologies.utilitylibrary.customuiview.USTextView
 
 class SignInActivity : AppCompatActivity(), LoginFragment.OnLoginFragmentCallBack, RegisterFragment.OnRegisterFragmentCallBack {
 

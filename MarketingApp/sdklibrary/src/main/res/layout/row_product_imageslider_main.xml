@@ -9,7 +9,7 @@
     <com.smarteist.autoimageslider.SliderView
             android:id="@+id/row_product_imageSlider"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             app:sliderAnimationDuration="600"
             app:sliderAutoCycleDirection="back_and_forth"
             app:sliderAutoCycleEnabled="true"

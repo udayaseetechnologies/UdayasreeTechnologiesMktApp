@@ -49,4 +49,18 @@
         <attr name="civ_circle_background_color" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="AnimationView">
+        <attr name="anim_icon_type" format="string" />
+        <attr name="anim_icon_size" format="dimension|reference"/>
+        <attr name="anim_like_drawable" format="reference" />
+        <attr name="anim_unlike_drawable" format="reference" />
+        <attr name="anim_dots_primary_color" format="color|reference" />
+        <attr name="anim_dots_secondary_color" format="color|reference" />
+        <attr name="anim_circle_start_color" format="color|reference" />
+        <attr name="anim_circle_end_color" format="color|reference" />
+        <attr name="anim_liked" format="boolean"/>
+        <attr name="anim_is_enabled" format="boolean"/>
+        <attr name="anim_scale_factor" format="float"/>
+    </declare-styleable>
+
 </resources>

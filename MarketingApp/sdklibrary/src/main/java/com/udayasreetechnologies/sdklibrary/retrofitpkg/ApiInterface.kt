@@ -3,10 +3,16 @@ package com.udayasreetechnologies.sdklibrary.retrofitpkg
 import com.udayasreetechnologies.sdklibrary.retrofitpkg.models.AllCategoryModel
 import com.udayasreetechnologies.sdklibrary.retrofitpkg.models.HomeMainModel
 import com.udayasreetechnologies.sdklibrary.retrofitpkg.models.PostalMainModel
+import com.udayasreetechnologies.sdklibrary.ui.productlist.models.MainHomeModel
 import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiInterface {
+
+    @Headers("secret-key: \$2b\$10\$YPdEAv88EmvermFjqYZ8xuzFrumQIQf4stIX2I1WgSMKGv1DKESSe")
+    @GET("/b/5f166c04c58dc34bf5d79760")
+    fun getDuplicateHomeProductApi() : Call<List<MainHomeModel>>
+/*------------------------------------------------------------------------*/
 
     @GET
     fun getPostalDetailApi(@Url url : String) : Call<PostalMainModel>

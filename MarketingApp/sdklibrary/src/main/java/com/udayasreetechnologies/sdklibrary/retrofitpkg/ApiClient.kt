@@ -54,5 +54,18 @@ class ApiClient {
             }
             return postalRetrofit
         }
+
+        private val DUPLICATE = "https://api.jsonbin.io/"
+        private var duplicateRetrofit : Retrofit? = null
+        fun getApiClientDuplicate() : Retrofit? {
+            if (duplicateRetrofit == null) {
+                duplicateRetrofit = Retrofit.Builder()
+                    .baseUrl(POSTAL_BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(okHttpClient)
+                    .build()
+            }
+            return duplicateRetrofit
+        }
     }
 }

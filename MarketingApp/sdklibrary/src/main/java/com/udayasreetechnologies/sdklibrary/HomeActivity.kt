@@ -17,15 +17,14 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
-import com.udayasreetechnologies.sdklibrary.ui.productlist.ProductListFragment
+import com.udayasreetechnologies.sdklibrary.ui.productlist.ListFragmentHome
 import com.udayasreetechnologies.sdklibrary.utils.AppConstants
 import com.udayasreetechnologies.sdklibrary.utils.CountDrawable
 import com.udayasreetechnologies.utilitylibrary.customuiview.AppUtility
-import com.udayasreetechnologies.utilitylibrary.customuiview.searchview.MaterialSearchView
 
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
-    ProductListFragment.OnHomeFragmentListener {
+    ListFragmentHome.OnHomeFragmentListener {
 
     private var mFragmentPosition : Int = 0
     private lateinit var permissions: Array<String>
@@ -94,7 +93,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun productListFragment() {
-        launchFragment(ProductListFragment.newInstance(), "Products")
+        launchFragment(ListFragmentHome.newInstance(), "Products")
     }
 
 /*-------------------------- Listener's ------------------------*/

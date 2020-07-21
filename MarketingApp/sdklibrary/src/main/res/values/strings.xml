@@ -61,5 +61,6 @@
     <string name="address_type">Address Type*</string>
     <string name="home">Home</string>
     <string name="work">Work</string>
+    <string name="select_item_quantity">Select Item Quantity</string>
 
 </resources>
