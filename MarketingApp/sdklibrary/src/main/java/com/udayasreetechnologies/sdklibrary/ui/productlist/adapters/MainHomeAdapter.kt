@@ -21,31 +21,38 @@ class MainHomeAdapter(
     val listenerHome: OnMainHomeAdapterListener
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), HomeProductAdapter.OHomeProductAdapterListener {
 
-    private val IMAGE_SLIDER = 0
-    private val PRODUCT_CATEGORY = 1
-    private val PRODUCT_LIST = 2
-    private val OTHERS = 3
+    private val SLIDER_VIEW = 1
+    private val HORIZONTAL_VIEW = 2
+    private val VERTICAL_VIEW = 3
+    private val VERTICAL_2GRID_VIEW = 4
+    private val VERTICAL_3GRID_VIEW = 5
 
     override fun getItemViewType(position: Int): Int {
         return when (mainHomeList[position].viewType) {
-            IMAGE_SLIDER -> {
-                IMAGE_SLIDER
+            SLIDER_VIEW -> {
+                SLIDER_VIEW
             }
-            PRODUCT_CATEGORY -> {
-                PRODUCT_CATEGORY
+            HORIZONTAL_VIEW -> {
+                HORIZONTAL_VIEW
             }
-            PRODUCT_LIST -> {
-                PRODUCT_LIST
+            VERTICAL_VIEW -> {
+                VERTICAL_VIEW
+            }
+            VERTICAL_2GRID_VIEW -> {
+                VERTICAL_2GRID_VIEW
+            }
+            VERTICAL_3GRID_VIEW -> {
+                VERTICAL_3GRID_VIEW
             }
             else -> {
-                OTHERS
+                VERTICAL_VIEW
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            IMAGE_SLIDER -> {
+            SLIDER_VIEW -> {
                 ProductSliderHolder(
                     LayoutInflater.from(parent.context).inflate(
                         R.layout.row_product_imageslider_main,
@@ -54,7 +61,7 @@ class MainHomeAdapter(
                 )
             }
 
-            PRODUCT_CATEGORY -> {
+            HORIZONTAL_VIEW -> {
                 ProductCategoryHolder(
                     LayoutInflater.from(parent.context).inflate(
                         R.layout.row_product_category_main,
@@ -63,7 +70,7 @@ class MainHomeAdapter(
                 )
             }
 
-            PRODUCT_LIST -> {
+            VERTICAL_2GRID_VIEW -> {
                 ProductCategoryHolder(
                     LayoutInflater.from(parent.context).inflate(
                         R.layout.row_product_category_main,
@@ -84,7 +91,7 @@ class MainHomeAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {
-            IMAGE_SLIDER -> {
+            SLIDER_VIEW -> {
                 val sHolder = ProductSliderHolder(holder.itemView)
                 sHolder.imageSlider.setSliderAdapter(
                     HomeImageSliderAdapter(
@@ -100,7 +107,7 @@ class MainHomeAdapter(
                 sHolder.imageSlider.startAutoCycle()
             }
 
-            PRODUCT_CATEGORY -> {
+            HORIZONTAL_VIEW -> {
                 val cHolder = ProductCategoryHolder(holder.itemView)
                 cHolder.categoryAndProductRecyclerView.layoutManager =
                     LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
@@ -110,10 +117,31 @@ class MainHomeAdapter(
                 cAdapter.notifyDataSetChanged()
             }
 
-            PRODUCT_LIST -> {
+            VERTICAL_VIEW -> {
+                val cHolder = ProductCategoryHolder(holder.itemView)
+                cHolder.categoryAndProductRecyclerView.layoutManager =
+                    LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+                val cAdapter = HomeCategoryAdapter(context, mainHomeList[position].categories)
+                cHolder.categoryAndProductRecyclerView.setHasFixedSize(true)
+                cHolder.categoryAndProductRecyclerView.adapter = cAdapter
+                cAdapter.notifyDataSetChanged()
+            }
+
+            VERTICAL_2GRID_VIEW -> {
                 val lHolder = ProductCategoryHolder(holder.itemView)
 
                 lHolder.categoryAndProductRecyclerView.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
+                val lAdapter = HomeProductAdapter(context, mainHomeList[position].products, this)
+                lHolder.categoryAndProductRecyclerView.setHasFixedSize(true)
+                lHolder.categoryAndProductRecyclerView.addItemDecoration(GridSpacingItemDecorator(10))
+                lHolder.categoryAndProductRecyclerView.adapter = lAdapter
+                lAdapter.notifyDataSetChanged()
+            }
+
+            VERTICAL_3GRID_VIEW -> {
+                val lHolder = ProductCategoryHolder(holder.itemView)
+
+                lHolder.categoryAndProductRecyclerView.layoutManager = GridLayoutManager(context, 3, RecyclerView.VERTICAL, false)
                 val lAdapter = HomeProductAdapter(context, mainHomeList[position].products, this)
                 lHolder.categoryAndProductRecyclerView.setHasFixedSize(true)
                 lHolder.categoryAndProductRecyclerView.addItemDecoration(GridSpacingItemDecorator(10))

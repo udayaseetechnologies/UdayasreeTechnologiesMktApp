@@ -211,9 +211,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun onBackPressedAction(): Boolean {
         when(mFragmentPosition) {
             0 -> {
-
-            }
-            else -> {
                 return true
             }
         }

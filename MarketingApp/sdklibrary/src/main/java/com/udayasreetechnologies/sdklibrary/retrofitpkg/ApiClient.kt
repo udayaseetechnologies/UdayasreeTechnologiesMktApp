@@ -60,7 +60,7 @@ class ApiClient {
         fun getApiClientDuplicate() : Retrofit? {
             if (duplicateRetrofit == null) {
                 duplicateRetrofit = Retrofit.Builder()
-                    .baseUrl(POSTAL_BASE_URL)
+                    .baseUrl(DUPLICATE)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(okHttpClient)
                     .build()
